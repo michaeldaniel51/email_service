@@ -14,8 +14,15 @@ public class EmailController {
     @Autowired
     private EmailService emailService;
 
+
+    /*
+    when creating an email
+    input only your firstname and lastname
+    and the rest is generated for you automatically
+     */
+
     @PostMapping
-    public String saveEmail(@RequestBody Email email){
+    public String createEmail(@RequestBody Email email){
       return  emailService.createEmail(email);
     }
 

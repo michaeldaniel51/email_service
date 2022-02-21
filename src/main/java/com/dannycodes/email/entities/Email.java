@@ -3,21 +3,22 @@ package com.dannycodes.email.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-
+import java.util.Random;
 
 
 @Entity
 public class Email {
 
-    @Id
+
     private String firstname;
     private String lastname;
     private String password;
     private String department;
     private int mailboxCapacity = 500;
+    @Id
     private String email;
     private String alternateEmail = "anybody@dmail.com";
-    private String companySuffix = "dmail.com";
+
 
 
     public Email(String firstname, String lastname, String password, String department, int mailboxCapacity, String email, String alternateEmail) {
@@ -82,6 +83,9 @@ public class Email {
             password[i] = passwordSet.charAt(rand);
         }
         return new String(password);
+
+
+
     }
 
     public String getDepartment() {
@@ -94,8 +98,10 @@ public class Email {
     }
 
     public String theDepartment() {
-
-        return "developer";
+        String []departmentSet = {"DEVELOPER","SALES","ACCOUNTING"};
+        Random rnd = new Random();
+        int random  = rnd.nextInt(departmentSet.length);
+       return departmentSet[random];
 
     }
 
@@ -115,15 +121,20 @@ public class Email {
     }
 
     public String showInfo(){
+        String companySuffix = "dmail.com";
         return firstname.toLowerCase() + lastname.toLowerCase() + "@" + companySuffix;
     }
 
     @Override
     public String toString() {
-        return ("EMAIL CREATED : " + this.firstname + " " + this.lastname);
-//        return "Email{" +
-//                "firstname='" + firstname + '\'' +
-//                ", lastname='" + lastname + '\'' +
-//                '}';
+        return "Email{" +
+                "firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", password='" + password + '\'' +
+                ", department='" + department + '\'' +
+                ", mailboxCapacity=" + mailboxCapacity +
+                ", email='" + email + '\'' +
+                ", alternateEmail='" + alternateEmail + '\'' +
+                '}';
     }
 }

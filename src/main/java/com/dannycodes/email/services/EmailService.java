@@ -20,7 +20,7 @@ public class EmailService {
         email.setPassword(email.randomPassword(10));
         email.setEmail(email.showInfo());
          emailRepository.save(email);
-         return email.showInfo();
+         return "your registered email is:\n " + email.showInfo();
     }
 
     public List<Email> getEmails(){
