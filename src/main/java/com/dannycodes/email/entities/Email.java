@@ -21,13 +21,13 @@ public class Email {
 
 
 
-    public Email(String firstname, String lastname, String password, String department, int mailboxCapacity, String email, String alternateEmail) {
+    public Email(String firstname, String lastname, String password, String department, int mailboxCapacity, String alternateEmail) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.password = password;
         this.department = department;
         this.mailboxCapacity = mailboxCapacity;
-        this.email = email;
+        this.email = showInfo();
         this.alternateEmail = alternateEmail;
     }
 
