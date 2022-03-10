@@ -2,6 +2,8 @@ package com.dannycodes.email.services;
 
 import com.dannycodes.email.entities.Email;
 import com.dannycodes.email.repositories.EmailRepository;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,13 +15,15 @@ public class EmailService {
     @Autowired
     private EmailRepository emailRepository;
 
+    private final Log log = LogFactory.getLog(this.getClass());
 
     public String createEmail(Email email){
 
         email.setDepartment(email.theDepartment());
-        email.setPassword(email.randomPassword(10));
+        email.setPassword(email.c());
         email.setEmail(email.showInfo());
          emailRepository.save(email);
+        log.info(email.c());
          return "your registered email is:\n " + email.showInfo();
     }
 
