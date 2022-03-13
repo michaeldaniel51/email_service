@@ -59,7 +59,7 @@ class EmailApplicationTests {
 
 		Email e = new Email();
 
-		String c = e.c();
+		String c = e.password();
 
 		log.info(c);
 		Assertions.assertNotNull(c);

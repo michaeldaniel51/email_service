@@ -20,11 +20,12 @@ public class EmailService {
     public String createEmail(Email email){
 
         email.setDepartment(email.theDepartment());
-        email.setPassword(email.c());
+        email.setPassword(email.password());
         email.setEmail(email.showInfo());
          emailRepository.save(email);
-        log.info(email.c());
-         return "your registered email is:\n " + email.showInfo();
+        log.info(email.password());
+        return "your registered email is: " + email.showInfo();
+        // return "your registered email is:\n " + email.showInfo();
     }
 
     public List<Email> getEmails(){

@@ -1,9 +1,6 @@
 package com.dannycodes.email.entities;
 
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.Random;
@@ -88,15 +85,15 @@ public class Email {
 
     }
 
-    public String c() {
+    public String password() {
 
         int passwordLength = 12;
         String passwordCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890@#$%^&*";
          char[] password = new char[passwordLength];
          for (int i = 0; i<passwordLength; i++){
              Random ran = new Random();
-             int g = ran.nextInt(passwordCharacters.length());
-             password[i] = passwordCharacters.charAt(g);
+             int resolvedpassword = ran.nextInt(passwordCharacters.length());
+             password[i] = passwordCharacters.charAt(resolvedpassword);
          }
 
          return new String(password);
