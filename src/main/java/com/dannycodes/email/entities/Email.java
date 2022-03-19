@@ -1,78 +1,30 @@
 package com.dannycodes.email.entities;
 
 
+import lombok.Data;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.Random;
 
 
+@Data
 @Entity
 public class Email {
 
 
+    @Id
+    private int emailId;
     private String firstname;
     private String lastname;
     private String password;
     private String department;
     private int mailboxCapacity = 500;
-    @Id
     private String email;
     private String alternateEmail = "anybody@dmail.com";
+    private int messageId;
 
 
-    public Email(String firstname, String lastname, String password, String department, int mailboxCapacity, String alternateEmail) {
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.password = password;
-        this.department = department;
-        this.mailboxCapacity = mailboxCapacity;
-        this.email = showInfo();
-        this.alternateEmail = alternateEmail;
-    }
-
-    public Email() {
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-
-    public String getAlternateEmail() {
-        return alternateEmail;
-    }
-
-    public void setAlternateEmail(String alternateEmail) {
-        this.alternateEmail = alternateEmail;
-    }
-
-    public String getFirstname() {
-        return firstname;
-    }
-
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
     public String randomPassword(int lenght) {
         String passwordSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890@#$%^&*";
@@ -106,32 +58,6 @@ public class Email {
         int random  = rnd.nextInt(departmentSet.length);
         return departmentSet[random];
 
-    }
-
-
-    public String getDepartment() {
-        return department;
-    }
-
-
-    public void setDepartment(String department) {
-        this.department = department;
-    }
-
-
-    public int getMailboxCapacity() {
-        return mailboxCapacity;
-    }
-
-
-    public void setMailboxCapacity(int mailboxCapacity) {
-        this.mailboxCapacity = mailboxCapacity;
-    }
-
-
-
-    public void changePassword(String password){
-        this.password = password;
     }
 
     public String showInfo(){
